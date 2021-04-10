@@ -123,12 +123,3 @@ alias xinitrc='vim /home/frostlin/.xinitrc'
 alias keyrc= 'vim /home/frostlin/.config/sxhkd/sxhdkrc'
 alias bp="pkexec brillo -A 10"
 alias bm="pkexec brillo -U 10"
-=======
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fdfind --type f'
-export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
-bindkey '^i' autosuggest-accept
-
-alias create_snapshot='sudo btrfs subvolume snapshot / /snaphots/$NOW'
->>>>>>> 4da32ba6503442a7e16f36a8754d649eed432be6
