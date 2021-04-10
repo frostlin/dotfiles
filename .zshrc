@@ -79,6 +79,7 @@ plugins=(
 	zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
+unsetopt correct
 
 # User configuration
 
@@ -105,9 +106,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+pfetch
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f'
 export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 bindkey '^ ' autosuggest-accept
-
+alias font='setfont ter-132n'
+alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
+alias zshrc='vim /home/frostlin/.zshrc'
+alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
+alias xinitrc='vim /home/frostlin/.xinitrc'
+alias keyrc= 'vim /home/frostlin/.config/sxhkd/sxhdkrc'
+alias bp="pkexec brillo -A 10"
+alias bm="pkexec brillo -U 10"
