@@ -9,7 +9,7 @@ super + {_, shift +}Return
 	#st -f "UbuntuMono Nerd Font Mono:style=Regular:size=11:autohint=false" 
 # program launcher
 super + d
-	rofi -show drun -theme purple
+	rofi -show drun -theme purple -font "Noto sans regular 18" -icon-theme "Papirus" -show-icons
 
 # make sxhkd reload its configuration files:
 super + Escape
