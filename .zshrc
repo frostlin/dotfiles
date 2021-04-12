@@ -79,10 +79,7 @@ plugins=(
 	zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
-<<<<<<< HEAD
 unsetopt correct
-=======
->>>>>>> 4da32ba6503442a7e16f36a8754d649eed432be6
 
 # User configuration
 
@@ -119,6 +116,6 @@ alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
 alias zshrc='vim /home/frostlin/.zshrc'
 alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
 alias xinitrc='vim /home/frostlin/.xinitrc'
-alias keyrc= 'vim /home/frostlin/.config/sxhkd/sxhdkrc'
+alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
 alias bp="pkexec brillo -A 10"
 alias bm="pkexec brillo -U 10"
