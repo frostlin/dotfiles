@@ -10,16 +10,16 @@ super + {_, shift +}Return
 # program launcher
 super + d
 	rofi -show drun -theme purple -font "Noto sans regular 22" -icon-theme "Papirus" -show-icons
-
+super + e
+	alacritty -e ranger
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + r
 	pkill -USR1 -x sxhkd
 Print
 	flameshot gui
-super + v
-	bm
-
+super + Escape
+	slock
 #
 # bspwm hotkeys
 #
