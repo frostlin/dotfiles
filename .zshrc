@@ -106,7 +106,10 @@ unsetopt correct
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+ date +"%m-%d %T"
  pfetch
+ acpi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f'
 export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
@@ -117,5 +120,7 @@ alias zshrc='vim /home/frostlin/.zshrc'
 alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
 alias xinitrc='vim /home/frostlin/.xinitrc'
 alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
-alias bp="pkexec brillo -A 10"
-alias bm="pkexec brillo -U 10"
+alias p='sudo pacman -S'
+alias pr='sudo pacman -R'
+alias cm='cmatrix -u 3 -C cyan -s'
+alias :q='exit'
