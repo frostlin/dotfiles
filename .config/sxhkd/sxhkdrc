@@ -7,9 +7,10 @@
 super + {_, shift +}Return
 	{alacritty, brave}
 	#st -f "UbuntuMono Nerd Font Mono:style=Regular:size=11:autohint=false" 
-# program launcher
+# rofi
 super + d
-	rofi -show drun -theme purple -font "Noto sans regular 22" -icon-theme "Papirus" -show-icons
+	rofi -show drun -theme Arc-Dark -font "Noto sans regular 22" -icon-theme "Papirus" -show-icons
+# launch ranger
 super + e
 	alacritty -e ranger
 
@@ -31,7 +32,9 @@ XF86MonBrightnessUp
 	brillo -A 5
 XF86MonBrightnessDown
 	brillo -U 5
-
+#XF86AudioNext
+#XF86AudioPrev
+#XF86AudioPause
 
 #
 # bspwm hotkeys
@@ -43,7 +46,7 @@ super + shift + {q,r}
 
 # close and kill
 super + {_,shift + }c
-	bspc node -{c,k}
+	bspc node -{k,c}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -129,11 +132,11 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -20 0,bottom 0 20,bottom 0 -20,left 20 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {left -40 0,bottom 0 40,bottom 0 -40,left 40 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
