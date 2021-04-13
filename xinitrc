@@ -54,4 +54,3 @@ nitrogen --restore &
 picom -experemental_backend --backend glx -e 1.0 &
 polybar ~/polybar/config &
 exec bspwm
-wmname LG3D
