@@ -51,7 +51,7 @@ fi
 xset r rate 300 50
 setxkbmap -layout us,ru -option grp:win_space_toggle
 nitrogen --restore &
-picom -experemental_backend --backend glx &
+picom -experemental_backend --backend glx -e 1.0 &
 polybar ~/polybar/config &
-wmname LG3D
 exec bspwm
+wmname LG3D
