@@ -20,10 +20,22 @@ Print
 	flameshot gui
 super + Escape
 	slock
+# audio keys control
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+XF86AudioLowerVolume
+	amixer set Master 5%-
+XF86AudioMute
+	amixer set Master toggle
+XF86MonBrightnessUp
+	brillo -A 5
+XF86MonBrightnessDown
+	brillo -U 5
+
+
 #
 # bspwm hotkeys
 #
-
 
 # quit/restart bspwm
 super + shift + {q,r}
