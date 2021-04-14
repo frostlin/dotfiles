@@ -120,7 +120,22 @@ alias zshrc='vim /home/frostlin/.zshrc'
 alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
 alias xinitrc='vim /home/frostlin/.xinitrc'
 alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
+alias vimrc='sudo vim /etc/vimrc'
+alias alacrittyrc='vim /home/frostlin/.config/alacritty/alacritty.yml'
 alias p='sudo pacman -S'
 alias pr='sudo pacman -R'
 alias cm='cmatrix -u 3 -C cyan -s'
 alias :q='exit'
+
+# git 
+alias ga="git add"
+alias gc="git commit -m"
+alias gC="ga . && gc"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git pull "
+alias gf="git fetch --all"
+alias gi="git update-index --assume-unchanged "
+alias gui="git update-index --no-assume-unchanged"
+alias gid="git ls-files -v | grep ^[a-z]"
+alias gco="git checkout"
