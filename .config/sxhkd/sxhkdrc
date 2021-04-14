@@ -2,14 +2,12 @@
 # wm independent hotkeys
 #
 
-
 # terminal emulator
 super + {_, shift +}Return
 	{alacritty, brave}
-	#st -f "UbuntuMono Nerd Font Mono:style=Regular:size=11:autohint=false" 
 # rofi
 super + d
-	rofi -show drun -theme Arc-Dark -font "Noto sans regular 22" -icon-theme "Papirus" -show-icons
+	rofi -show drun -theme Arc-Dark -font "Noto sans regular 16" -icon-theme "Papirus" -show-icons
 # launch ranger
 super + e
 	alacritty -e ranger
@@ -17,10 +15,13 @@ super + e
 # make sxhkd reload its configuration files:
 super + r
 	pkill -USR1 -x sxhkd
+# Screenshot of an area
 Print
 	flameshot gui
+# lock screen with Slock
 super + Escape
 	slock
+
 # audio keys control
 XF86AudioRaiseVolume
 	amixer set Master 5%+
@@ -28,16 +29,26 @@ XF86AudioLowerVolume
 	amixer set Master 5%-
 XF86AudioMute
 	amixer set Master toggle
+
+# brightness function keys control
 XF86MonBrightnessUp
 	brillo -A 5
 XF86MonBrightnessDown
 	brillo -U 5
+# todo
 #XF86AudioNext
 #XF86AudioPrev
 #XF86AudioPause
 
+# mouse window control
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
+super + @button{1-3}
+    bspc pointer -u
+super + !button{1-3}
+    bspc pointer -t %i %i
+
+
 
 #
 # bspwm hotkeys
@@ -68,8 +79,8 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super +{_,shift + } f
+	bspc node -t {floating, tiled}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -94,10 +105,6 @@ super + {_,shift + }c
 # focus the next/previous desktop in the current monitor
 super + ctrl + {Left,Right}
         bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
