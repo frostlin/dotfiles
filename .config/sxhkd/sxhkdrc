@@ -8,6 +8,8 @@ super + {_, shift +}Return
 # rofi
 super + d
 	rofi -show drun -theme Arc-Dark -font "Noto sans regular 16" -icon-theme "Papirus" -show-icons
+super + shift + d
+	rofi -show run -theme Arc-Dark -font "Noto sans regular 16" -icon-theme "Papirus" -show-icons
 # launch ranger
 super + e
 	alacritty -e ranger
