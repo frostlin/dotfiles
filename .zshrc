@@ -42,7 +42,6 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -71,15 +70,11 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	fzf
-	history-substring-search
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
-unsetopt correct
 
 # User configuration
 
@@ -106,9 +101,9 @@ unsetopt correct
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
- date +"%m-%d %T"
- pfetch
- acpi
+date +"%m-%d %T"
+pfetch
+acpi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f'
