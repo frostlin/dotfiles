@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/frostlin/.oh-my-zsh"
+PATH="$HOME/.local/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -117,6 +118,7 @@ alias xinitrc='vim /home/frostlin/.xinitrc'
 alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
 alias vimrc='sudo vim /etc/vimrc'
 alias alacrittyrc='vim /home/frostlin/.config/alacritty/alacritty.yml'
+alias barrc='vim /home/frostlin/.config/polybar/config'
 alias mkdir="mkdir -pv"
 alias mnt="sudo mount"
 alias umnt="sudo umount"
@@ -127,6 +129,7 @@ alias mnt2="mnt /dev/sdc1 /home/frostlin/mounted/flash2"
 alias umnt1="umnt /dev/sdb1"
 alias umnt2="umnt /dev/sdc1"
 
+alias r='ranger'
 alias p='sudo pacman -S'
 alias pr='sudo pacman -R'
 alias cm='cmatrix -u 3 -C cyan -s'
