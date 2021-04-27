@@ -102,9 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-date +"%m-%d %T"
 pfetch
-acpi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f'
@@ -129,6 +127,7 @@ alias mnt2="mnt /dev/sdc1 /home/frostlin/mounted/flash2"
 alias umnt1="umnt /dev/sdb1"
 alias umnt2="umnt /dev/sdc1"
 
+alias word="gowords search"
 alias r='ranger'
 alias p='sudo pacman -S'
 alias pr='sudo pacman -R'
@@ -145,3 +144,7 @@ alias gpush="git push"
 alias gpull="git pull"
 alias gf="git fetch --all"
 alias gi="git update-index --assume-unchanged "
+
+chmod +x ~/.vocab
+~/.vocab
+alias clear="clear;~/.vocab"
