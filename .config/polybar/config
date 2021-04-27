@@ -7,7 +7,7 @@ foreground = #f8f8f2
 modules-left = workspaces xkeyboard
 modules-center = title
 modules-right = battery wlan separatordotted volume spacing separatordotted date powermenu 
-
+wm-restack = bspwm
 
 
 [module/xkeyboard]
@@ -20,8 +20,6 @@ format = <label-layout> <label-indicator>
 format-spacing = 0
 label-layout = %name%
 label-layout-padding = 2
-label-layout-background = #bc99ed
-label-layout-foreground = #000
 #label-indicator = %name%
 layout-icon-default = some-icon
 layout-icon-0 = ch;C
