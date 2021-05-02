@@ -108,13 +108,16 @@ pfetch
 export FZF_DEFAULT_COMMAND='fdfind --type f'
 export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 bindkey '^ ' autosuggest-accept
+
+alias vim="nvim"
+alias v="nvim" 
 alias font='setfont ter-132n'
 alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
 alias zshrc='vim /home/frostlin/.zshrc'
 alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
 alias xinitrc='vim /home/frostlin/.xinitrc'
 alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
-alias vimrc='sudo vim /etc/vimrc'
+alias vimrc='vim /home/frostlin/.config/nvim/init.vim'
 alias alacrittyrc='vim /home/frostlin/.config/alacritty/alacritty.yml'
 alias barrc='vim /home/frostlin/.config/polybar/config'
 alias mkdir="mkdir -pv"
