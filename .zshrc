@@ -3,8 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/frostlin/.oh-my-zsh"
-PATH="$HOME/.local/bin:$PATH"
-
+export PATH="$HOME/.local/bin:$PATH"
+export EDITOR="/bin/nvim"
+export SUDO_EDITOR="/usr/bin/nvim"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -110,7 +111,8 @@ export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 bindkey '^ ' autosuggest-accept
 
 alias vim="nvim"
-alias v="nvim" 
+alias v="nvim"
+alias sudovim="sudo nvim -u /home/frostlin/.config/nvim/init.vim"
 alias font='setfont ter-132n'
 alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
 alias zshrc='vim /home/frostlin/.zshrc'
@@ -132,6 +134,7 @@ alias umnt2="umnt /dev/sdc1"
 
 alias word="gowords search"
 alias r='ranger'
+alias sudoranger="sudo ranger -r /home/frostlin/.config/ranger"
 alias p='sudo pacman -S'
 alias pr='sudo pacman -R'
 alias cm='cmatrix -u 3 -C cyan -s'
