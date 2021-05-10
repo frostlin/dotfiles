@@ -57,7 +57,7 @@ set foldexpr=nvim_treesitter#foldexpr()
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
 Plug 'scrooloose/NERDTree'
-
+nnoremap <C-n> :NERDTree<CR>
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
