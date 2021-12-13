@@ -1,8 +1,8 @@
-export ZSH="/home/frostlin/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
-export EDITOR="/bin/nvim"
-export SUDO_EDITOR="/usr/bin/nvim"
-ZSH_THEME="alanpeabody"
+export EDITOR="/bin/vim"
+export SUDO_EDITOR="/usr/bin/vim"
+ZSH_THEME="spaceship"
 
 CASE_SENSITIVE="true"
 
@@ -20,9 +20,6 @@ export FZF_DEFAULT_COMMAND='fdfind --type f'
 export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 bindkey '^ ' autosuggest-accept
 
-alias vim="nvim"
-alias v="nvim"
-alias sudovim="sudo nvim -u /home/frostlin/.config/nvim/init.vim"
 alias font='setfont ter-132n'
 alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
 alias zshrc='vim /home/frostlin/.zshrc'
@@ -45,10 +42,11 @@ alias umnt2="umnt /dev/sdc1"
 alias r='ranger'
 alias sudoranger="sudo ranger -r /home/frostlin/.config/ranger"
 alias p='sudo pacman -S'
-alias pr='sudo pacman -R'
+alias pr='sudo pacman -Rsn'
+alias pu='sudo pacman -Syu'
 alias cm='cmatrix -u 3 -C cyan -s'
 alias :q='exit'
-
+alias img2asc='ascii-image-converter'
 # git 
 alias ga="git add"
 alias gc="git commit -m"
