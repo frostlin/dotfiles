@@ -1,7 +1,3 @@
-export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.local/bin:$PATH"
-export EDITOR="/bin/vim"
-export SUDO_EDITOR="/usr/bin/vim"
 ZSH_THEME="spaceship"
 
 CASE_SENSITIVE="true"
@@ -14,11 +10,8 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-pfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fdfind --type f'
-export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 bindkey '^ ' autosuggest-accept
 
 alias font='setfont ter-132n'
@@ -35,6 +28,7 @@ alias mnt="sudo mount"
 alias umnt="sudo umount"
 alias spotify="ncspot"
 alias egs="legendary"
+alias wname="xprop WM_NAME WM_CLASS"
 # mount usb
 alias mnt1="mnt /dev/sdb1 /home/frostlin/mounted/flash1"
 alias mnt2="mnt /dev/sdc1 /home/frostlin/mounted/flash2"
