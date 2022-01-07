@@ -1,7 +1,6 @@
 ZSH_THEME="spaceship"
-
 CASE_SENSITIVE="true"
-
+bindkey '^ ' autosuggest-accept
 plugins=(
 	colored-man-pages
 	zsh-autosuggestions
@@ -9,12 +8,9 @@ plugins=(
     fzf
 )
 source $ZSH/oh-my-zsh.sh
+pfetch 
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey '^ ' autosuggest-accept
-
-alias font='setfont ter-132n'
+#-- Configs
 alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
 alias zshrc='vim /home/frostlin/.zshrc'
 alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
@@ -23,32 +19,30 @@ alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
 alias vimrc='vim /home/frostlin/.config/nvim/init.vim'
 alias alacrittyrc='vim /home/frostlin/.config/alacritty/alacritty.yml'
 alias barrc='vim /home/frostlin/.config/polybar/config'
-alias mkdir="mkdir -pv"
-alias mnt="sudo mount"
-alias umnt="sudo umount"
-alias spotify="ncspot"
-alias egs="legendary"
-alias wname="xprop WM_NAME WM_CLASS"
-# mount usb
-alias mnt1="mnt /dev/sdb1 /home/frostlin/mounted/flash1"
-alias mnt2="mnt /dev/sdc1 /home/frostlin/mounted/flash2"
-alias umnt1="umnt /dev/sdb1"
-alias umnt2="umnt /dev/sdc1"
 
-alias r='ranger'
-alias sudoranger="sudo ranger -r /home/frostlin/.config/ranger"
+#-- Pacman 
 alias p='sudo pacman -S'
 alias pr='sudo pacman -Rsn'
 alias pu='sudo pacman -Syu'
+
+#-- Misc
+alias font='setfont ter-132n'
+alias mkdir="mkdir -pv"
+alias egs="legendary"
+alias wname="xprop WM_NAME WM_CLASS"
+alias r='ranger'
+alias img2asc='ascii-image-converter'
 alias cm='cmatrix -u 3 -C cyan -s'
 alias :q='exit'
-alias img2asc='ascii-image-converter'
+alias q='exit'
 # git 
 alias ga="git add"
 alias gc="git commit -m"
 alias gC="ga . && gc"
 alias gs="git status"
 alias gd="git diff"
+alias gr="git rm"
+alias grs="git restore --staged"
 alias gpush="git push"
 alias gpull="git pull"
 alias gf="git fetch --all"
