@@ -1,6 +1,5 @@
 ZSH_THEME="spaceship"
 CASE_SENSITIVE="true"
-bindkey '^ ' autosuggest-accept
 plugins=(
 	colored-man-pages
 	zsh-autosuggestions
@@ -8,6 +7,7 @@ plugins=(
     fzf
 )
 source $ZSH/oh-my-zsh.sh
+bindkey '^ ' autosuggest-accept
 pfetch 
 
 #-- Configs
@@ -33,8 +33,10 @@ alias wname="xprop WM_NAME WM_CLASS"
 alias r='ranger'
 alias img2asc='ascii-image-converter'
 alias cm='cmatrix -u 3 -C cyan -s'
+alias ls='exa -la'
 alias :q='exit'
 alias q='exit'
+alias please='sudo'
 # git 
 alias ga="git add"
 alias gc="git commit -m"
