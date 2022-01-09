@@ -31,6 +31,7 @@ alias mkdir="mkdir -pv"
 alias egs="legendary"
 alias wname="xprop WM_NAME WM_CLASS"
 alias r='ranger'
+alias sr='sudo ranger'
 alias img2asc='ascii-image-converter'
 alias cm='cmatrix -u 3 -C cyan -s'
 alias ls='exa -la'
