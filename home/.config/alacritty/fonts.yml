@@ -2,26 +2,26 @@
 font:
   # Normal (roman) font face
   normal:
-    family: "Iosevka Custom"
-    #style: Regular
+    family: "Hack Nerd Font"
+    style: Regular
 
   # Bold font face
   bold:
-    family: "Iosevka Custom"
-    #style: Bold
+    family: "Hack Nerd Font"
+    style: Bold
 
   # Italic font face
   italic:
-    family: "Iosevka Custom"
-    #style: Italic
+    family: "Hack Nerd Font"
+    style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: "Iosevka Custom"
-    #style: Bold Italic
+    family: "Hack Nerd Font"
+    style: Bold Italic
 
   # Point size
-  size: 15
+  size: 13
 
   # Offset
   #offset:
