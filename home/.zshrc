@@ -1,4 +1,4 @@
-ZSH_THEME="spaceship"
+ZSH_THEME="alanpeabody"
 CASE_SENSITIVE="true"
 plugins=(
 	colored-man-pages
