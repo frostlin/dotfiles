@@ -53,15 +53,12 @@ shift + Print
     flameshot full -p ~/Pictures/Screenshots
 # Brighness control
 XF86MonBrightness{Up,Down}
-	brightness{ --inc, --dec}
+	brillo {-A 1, -U 1}
 	
 # Volume control
-XF86Audio{RaiseVolume,LowerVolume}
-	volume{ --inc, --dec}
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	amixer set Master { 1%+, 1%-, toggle}
 
-XF86AudioMute
-	volume --toggle
-	
 # Media control
 XF86Audio{Next,Prev,Play,Stop}
 	mpc {next,prev,toggle,stop}
@@ -99,4 +96,8 @@ super + {_,shift + }{1-9}
 	
 # Hide/Unhide Window
 super + shift + i
-	winmask		
+	winmask	
+
+# Hide/Unhide Polybar
+super + i
+    barmask
