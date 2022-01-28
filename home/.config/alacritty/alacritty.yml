@@ -29,7 +29,9 @@ window:
 ## scrolling
   history: 10000
   multiplier: 3
-
+colors:
+  primary:
+    background: '#000000'
 ## Cursor
 cursor:
   style:
