@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if [ $( bspc config top_padding ) == 0 ]; then
+	polybar-msg cmd show
+    bspc config top_padding 20
+else
+    polybar-msg cmd hide
+    bspc config top_padding 0
+fi
