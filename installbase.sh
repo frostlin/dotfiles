@@ -3,7 +3,7 @@
 sudo pacman -Syu
 
 # install general utilities
-sudo pacman -S --needed base-devel xorg xorg-apps xorg-xinit bspwm picom sxhkd rofi curl wget openssh git vim ranger htop alacritty zsh ueberzug feh mpv flameshot atool unrar unzip p7zip highlight ffmpegthumbnailer f2fs-tools exfatprogs dosfstools man terminus-font alsa-utils
+sudo pacman -S --needed base-devel xorg xorg-apps xorg-xinit vim wget curl git bspwm picom sxhkd rofi openssh ranger htop alacritty zsh ueberzug feh mpv flameshot atool unrar unzip p7zip highlight ffmpegthumbnailer f2fs-tools exfatprogs dosfstools man terminus-font alsa-utils perl-image-exiftool
 
 # install aur helper
 git clone https://aur.archlinux.org/paru.git

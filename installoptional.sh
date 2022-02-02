@@ -2,8 +2,8 @@
 # update system
 sudo pacman -Syu
 
-sudo pacman -S --needed telegram-desktop qbittorrent
-paru -S --needed vk-messenger dragon-drag-and-drop discord-canary
+sudo pacman -S --needed telegram-desktop qbittorrent jrnl
+paru -S --needed vk-messenger dragon-drag-and-drop discord-canary teams
 
 # Install vim configs
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
