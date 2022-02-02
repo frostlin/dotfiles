@@ -157,7 +157,6 @@ ws-icon-8 = 9
 ws-icon-default = 
 
 format = <label-state>
-format-font = 2
 
 label-monitor = %name%
 
@@ -173,15 +172,15 @@ label-monitor = %name%
 #label-dimmed-focused-background = ${color.BACKGROUND}
 
 label-focused = %name%
-#label-focused-foreground = ${color.BLUE}
-#label-focused-background = ${color.ALTBLACK}
-#label-focused-underline = ${color.BLUE}
+label-focused-foreground = ${color.FOREGROUND}
+label-focused-background = ${color.ALTBACKGROUND}
+label-focused-underline = ${color.FOREGROUND}
 label-focused-padding = 1
 
 label-occupied = %name%
-#label-occupied-foreground = ${color.GREEN}
-#label-occupied-background = ${color.BACKGROUND}
-#label-occupied-underline = ${color.GREEN}
+label-occupied-foreground = ${color.FOREGROUND}
+label-occupied-background = ${color.ALTBACKGROUND}
+label-occupied-underline = ${color.ALTFOREGROUND}
 label-occupied-padding = 1
 
 label-urgent = %name%
