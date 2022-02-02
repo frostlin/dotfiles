@@ -1,4 +1,4 @@
-ZSH_THEME="alanpeabody"
+ZSH_THEME="af-magic"
 CASE_SENSITIVE="true"
 plugins=(
 	colored-man-pages
@@ -8,36 +8,41 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
+
 pfetch 
 
 #-- Configs
-alias bspwmrc='vim /home/frostlin/.config/bspwm/bspwmrc'
-alias zshrc='vim /home/frostlin/.zshrc'
-alias picomrc='vim /home/frostlin/.config/picom/picom.conf'
-alias xinitrc='vim /home/frostlin/.xinitrc'
-alias keyrc='vim /home/frostlin/.config/sxhkd/sxhkdrc'
-alias vimrc='vim /home/frostlin/.config/nvim/init.vim'
-alias alacrittyrc='vim /home/frostlin/.config/alacritty/alacritty.yml'
-alias barrc='vim /home/frostlin/.config/polybar/config'
+alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
+alias zshrc='vim ~/.zshrc'
+alias picomrc='vim ~/.config/picom/picom.conf'
+alias xinitrc='vim ~/.xinitrc'
+alias keyrc='vim ~/.config/sxhkd/sxhkdrc'
+alias vimrc='vim ~/.vimrc'
+alias alacrittyrc='vim ~/.config/alacritty/alacritty.yml'
+alias barrc='vim ~/.config/polybar/config'
+alias jrnlrc='vim ~/.config/jrnl/jrnl.yaml'
 
 #-- Pacman 
 alias p='sudo pacman -S'
 alias pr='sudo pacman -Rsn'
 alias pu='sudo pacman -Syu'
+alias pi='pacman -Qi'
 
 #-- Misc
 alias font='setfont ter-132n'
 alias mkdir="mkdir -pv"
-alias egs="legendary"
-alias wname="xprop WM_NAME WM_CLASS"
 alias r='ranger'
 alias sr='sudo ranger'
-alias img2asc='ascii-image-converter'
-alias cm='cmatrix -u 3 -C cyan -s'
-alias ls='exa -la'
 alias :q='exit'
 alias q='exit'
+alias reload='source ~/.zshrc'
+alias journal='jrnl --format short'
+alias j='jrnl'
+alias img2asc='ascii-image-converter'
+alias cm='cmatrix -u 3 -C cyan -s'
 alias please='sudo'
+alias egs="legendary"
+
 # git 
 alias ga="git add"
 alias gc="git commit -m"
