@@ -13,9 +13,11 @@ setxkbmap -layout us,ru -option grp:win_space_toggle
 xset r rate 250 50
 
 bspc config border_width 1
-bspc config window_gap 4
+bspc config window_gap 5
 bspc config split_ratio 0.50
-bspc config top_padding 20
+
+height=$(grep height ~/.config/polybar/config | awk '{print $3}')
+bspc config top_padding $height
 
 bspc config borderless_monocle true
 bspc config gapless_monocle true
@@ -61,7 +63,7 @@ sxhkd &
 xfce4-power-manager &
 
 # Set wallpaper
-feh --bg-scale ~/Pictures/gruvbox.jpg
+feh --bg-scale ~/Pictures/wallpaper_not_found.webp
 
 # Start picom
 picom &
