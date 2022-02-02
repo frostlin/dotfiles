@@ -34,14 +34,6 @@ super + Escape
 super + d
 	sh ~/.config/bspwm/rofi/bin/launcher
 
-# Rofi Themes Menu
-super + shift + d
-	sh ~/.config/bspwm/rofi/bin/themes
-
-# Rofi Menus/Applets
-super + x
-    sh ~/.config/bspwm/rofi/bin/powermenu
-
 ##---------- System Keys ----------##
 
 #Take screenshot of area with Flameshot
@@ -53,7 +45,7 @@ shift + Print
     flameshot full -p ~/Pictures/Screenshots
 # Brighness control
 XF86MonBrightness{Up,Down}
-	brillo {-A 1, -U 1}
+	brillo -q {-A 1, -U 1}
 	
 # Volume control
 XF86Audio{RaiseVolume,LowerVolume,Mute}

@@ -1,7 +1,7 @@
 * {
-background:			#323f4e;
-foreground:			#f8f8f2;
-selected:			#92b6f4;
+background:			#000000;
+foreground:			#888888;
+selected:			#BBBBBB;
 highlight:			#f1fa8c;
 urgent:				#f48fb1;
 on:					#a1efd3;
