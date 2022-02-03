@@ -3,7 +3,7 @@
 sudo pacman -Syu
 
 sudo pacman -S --needed telegram-desktop qbittorrent jrnl
-paru -S --needed vk-messenger dragon-drag-and-drop discord-canary teams
+paru -S --needed vk-messenger dragon-drag-and-drop discord-canary teams libreoffice
 
 # Install vim configs
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
@@ -16,3 +16,10 @@ cd nerd-fonts
 cd ..
 rm -rf nerd-fonts
 
+# Install brillo for brightness control
+git clone --depth=1 https://github.com/CameronNemo/brillo
+cd brillo
+make 
+make install
+cd ..
+rem -rf brillo

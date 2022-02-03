@@ -26,16 +26,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-# Install Brillo for brightness control
-git clone --depth=1 https://github.com/CameronNemo/brillo 
-cd brillo 
-make 
-make isntall
-cd ..
-rm -rf brillo
-
 mkdir -p ~/Pictures/Screenshots
 mv ./wallpapers/* ~/Pictures
 
-ln ./home/* ~/
-ln ./home/.config/
+cd home
+ln * ~/
+mkdir ~/.config/{alacritty,bspwm/rofi/{bin,themes},picom,polybar,sxhkd}
+ln .config/alacritty/* ~/.config/alacritty
+ln .config/bspwm/bspwmrc ~/.config/bspwm/
+ln .config/bspwm/bin/* ~/.local/bin
+ln .config/picom/picom.conf ~/.config/picom
+ln .config/polybar/* ~/.config/polybar
+ln .config/ranger/* ~/.config/ranger
+ln .config/rofi/bin/* ~/.config/bspwm/rofi/bin
+ln .config/rofi/themes/* ~/.config/bspwm/rofi/themes
+ln .config/sxhkd/sxhkdrc ~/.config/sxhkd
+
+
