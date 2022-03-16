@@ -63,9 +63,9 @@ sxhkd &
 xfce4-power-manager &
 
 # Set wallpaper
-feh --bg-scale ~/Pictures/wallpaper_not_found.webp
+feh --bg-scale ~/Pictures/bouquet.jpg
 
 # Start picom
-picom &
+#picom &
 # Start polybar
 ~/.config/polybar/launch.sh &

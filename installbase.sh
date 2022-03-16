@@ -3,7 +3,7 @@
 sudo pacman -Syu
 
 # install general utilities
-sudo pacman -S --needed base-devel xorg xorg-apps xorg-xinit vim wget curl git bspwm picom sxhkd rofi openssh ranger htop alacritty zsh ueberzug feh mpv flameshot atool unrar unzip p7zip highlight ffmpegthumbnailer f2fs-tools exfatprogs dosfstools man terminus-font alsa-utils perl-image-exiftool
+sudo pacman -S --needed base-devel xorg xorg-apps xorg-xinit vim wget curl git bspwm picom sxhkd rofi openssh ranger htop alacritty zsh ueberzug feh mpv flameshot unrar unzip p7zip highlight ffmpegthumbnailer f2fs-tools exfatprogs dosfstools man terminus-font alsa-utils perl-image-exiftool zsh
 
 # install aur helper
 git clone https://aur.archlinux.org/paru.git
@@ -27,11 +27,15 @@ git clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugi
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 mkdir -p ~/Pictures/Screenshots
-mv ./wallpapers/* ~/Pictures
+cp -r ./wallpapers/* ~/Pictures
 
+mkdir -p ~/.local/bin
+mkdir -p ~/.config/{alacritty,bspwm/rofi/{bin,themes},picom,polybar,sxhkd}
+
+pwd
+ln home/* ~/
 cd home
-ln * ~/
-mkdir ~/.config/{alacritty,bspwm/rofi/{bin,themes},picom,polybar,sxhkd}
+
 ln .config/alacritty/* ~/.config/alacritty
 ln .config/bspwm/bspwmrc ~/.config/bspwm/
 ln .config/bspwm/bin/* ~/.local/bin
@@ -41,5 +45,3 @@ ln .config/ranger/* ~/.config/ranger
 ln .config/rofi/bin/* ~/.config/bspwm/rofi/bin
 ln .config/rofi/themes/* ~/.config/bspwm/rofi/themes
 ln .config/sxhkd/sxhkdrc ~/.config/sxhkd
-
-
