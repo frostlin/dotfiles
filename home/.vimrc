@@ -1,5 +1,12 @@
-set history=500
+filetype plugin on
+filetype indent on
+syntax on
+
+set nocompatible
 set wildmenu
+set path+=**
+
+set history=500
 set so=10
 set number 
 set relativenumber
@@ -11,16 +18,10 @@ set suffixes-=.obj
 set whichwrap+=<,>,h,l
 set t_Co=256
 
-filetype plugin on
-filetype indent on
-syntax on
-
 inoremap kj <Esc>
 
 nnoremap <S-j> :m+<CR>
 nnoremap <S-k> :m-2<CR>
-inoremap <S-j> <Esc>:m+<CR>
-inoremap <S-k> <Esc>:m-2<CR>
 let mapleader = ","
 nmap <laeder>w :w!<cr>
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
@@ -42,7 +43,7 @@ set tm=500
 
 set background=dark
 
-set encoding=utf8
+set encoding=utf-8
 set ffs=unix,dos,mac
 
 set nobackup
@@ -67,28 +68,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 map <silent> <leader><cr> :noh<cr>
 
-
 set guioptions-=R
 set guioptions-=r
 set guioptions-=l
 set guioptions-=L
-
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-Plug 'sts10/vim-pink-moon'
-Plug 'ajmwagar/vim-deus'
-call plug#end()
-
-"colorscheme deus
-"colorscheme 256_noir
-
-" Change highlighting of cursor line when entering/leaving Insert Mode
- "set cursorline
- "highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
- "autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
- "autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
