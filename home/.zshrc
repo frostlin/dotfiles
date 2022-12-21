@@ -4,12 +4,13 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-    fzf
 )
 source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
 
 pfetch 
+
+alias todo='cat ~/todo.txt'
 
 #-- Configs
 alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
@@ -56,3 +57,5 @@ alias gpull="git pull"
 alias gf="git fetch --all"
 alias gi="git update-index --assume-unchanged "
 
+alias monitors="pactl set-default-sink alsa_output.usb-FiiO_FiiO_USB_DAC_K1-01.analog-stereo;~/.config/polybar/launch.sh &"
+alias headphones="pactl set-default-sink alsa_output.pci-0000_0d_00.4.analog-stereo;~/.config/polybar/launch.sh &"
