@@ -4,7 +4,6 @@
 
 ## Import files (Colors, Fonts, Etc)
 import:
-#  - ~/.config/alacritty/colors.yml
   - ~/.config/alacritty/fonts.yml
 
 ## Set environment variables
@@ -15,12 +14,12 @@ env:
 ## Terminal window settings
 window:
   dimensions:
-    columns: 82
-    lines: 25
+    columns: 110
+    lines: 35
 
   padding:
-    x: 10
-    y: 10
+    x: 7
+    y: 7
 
   decorations: full
   startup_mode: Windowed
