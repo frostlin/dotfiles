@@ -2,15 +2,19 @@
 
 # Terminal (alacritty,default/floating/fullscreen)
 super + {_,ctrl,shift} + Return
-	{alacritty,alacritty --class 'Floating',alacritty --class 'Fullscreen'}
+    alacritty --class {'Alacritty','Floating','Fullscreen'}
 
 # File explorer
-super + e
-    alacritty -e ranger
+super + {_,shift} + e
+    {_,bspc rule -a Floating -o state=floating sticky=on focus=on follow=on;} alacritty --class 'Floating' -e ranger
+
+# iwctl in floating terminal 
+super + n
+    alacritty --class 'Floating' -e iwctl
 
 # Web browser 
 super + b
-    brave
+    firefox
 
 # Htop
 ctrl + shift + Escape
@@ -22,7 +26,7 @@ super + p
 
 # Color Picker
 super + shift + p
-	color-gpick
+    color-gpick
     
 # Lockscreen
 super + Escape
@@ -32,46 +36,42 @@ super + Escape
 
 # Rofi App Launcher
 super + d
-	sh ~/.config/bspwm/rofi/bin/launcher
+    sh ~/.config/bspwm/rofi/bin/launcher
 
 ##---------- System Keys ----------##
 
 #Take screenshot of area with Flameshot
-Print
+shift + Escape
     flameshot gui -p ~/Pictures/Screenshots
 
 # Take fullscreen and save to ~/Pictures
-shift + Print
+ctrl + shift + Escape
     flameshot full -p ~/Pictures/Screenshots
-# Brighness control
-XF86MonBrightness{Up,Down}
-	brillo -q {-A 1, -U 1}
 	
 # Volume control
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	amixer set Master { 1%+, 1%-, toggle}
+    amixer set Master { 1%+, 1%-, toggle}
 
 # Media control
 XF86Audio{Next,Prev,Play,Stop}
-	mpc {next,prev,toggle,stop}
+    mpc {next,prev,toggle,stop}
 
 ##---------- Bspwm ----------##
 
 # Close App
 super + {_,shift + }c
-	bspc node -{c,k}
+    bspc node -{c,k}
 
 # Reload Keybindings
 super + r
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 
 # Quit/Restart bspwm
 super + shift + {q,r}
-	bspc {quit,wm -r}
+    bspc {quit,wm -r}
 
-# Fullscreen or Monocle
+# Toggle Fullscreen
 super + m
-#	bspc desktop -l next
     bspc node -t "~"fullscreen
 
 # Toggle beetwen floating & tiled
@@ -80,16 +80,28 @@ super + f
 
 # Send the window to another edge of the screen
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
-# Send focused window to another workspace
+# Workspaces control
 super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} '^{1-9}'
-	
+    bspc {desktop -f,node -d} '^{1-9}'
+
+# Workaround for ^10 workspace
+super + {_,shift + }0
+    bspc {desktop -f,node -d} '^10'
+
 # Hide/Unhide Window
-super + shift + i
-	winmask	
+super + i
+    winmask	
 
 # Hide/Unhide Polybar
-super + i
+super + shift + i
     barmask
+
+# Cycle through occupied desktops (forward)
+super + Tab 
+    bspc desktop -f next.local.occupied
+    
+# Cycle through occupied desktops (backward)
+super + shift + Tab 
+    bspc desktop -f prev.local.occupied
