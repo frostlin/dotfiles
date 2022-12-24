@@ -2,6 +2,10 @@ filetype plugin on
 filetype indent on
 syntax on
 
+set undolevels=2000
+set undofile
+set undodir=$HOME/.vim/undo
+
 set nocompatible
 set wildmenu
 set path+=**
@@ -72,3 +76,15 @@ set guioptions-=R
 set guioptions-=r
 set guioptions-=l
 set guioptions-=L
+
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+      silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin()
+  Plug 'preservim/nerdtree'
+call plug#end()
