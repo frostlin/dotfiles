@@ -1,20 +1,24 @@
 #!/usr/bin/bash
-DIR="$HOME/.config/bspwm"
 
-rofi_command="rofi -theme $DIR/rofi/themes/powermenu.rasi"
-
-uptime=$(uptime -p | sed -e 's/up //g')
+rofi_command="rofi -theme ~/.config/bspwm/rofi/themes/powermenu.rasi"
 
 # Options
+
+shutdown="shut"
+reboot="reboot"
 lock="lock"
-suspend="sus"
-logout="log"
+suspendd="suspend"
+logoutt="logout"
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$suspendd\n$logoutt"
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 4)"
-case $chosen in
+uptime=$(uptime -p | sed -e 's/up //g')
+choice="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 3)"
+case $choice in
+    "")
+        exit
+        ;;
     $shutdown)
         systemctl poweroff
         ;;
@@ -24,10 +28,10 @@ case $chosen in
     $lock)
         slock
         ;;
-    $suspend)
+    $suspendd)
         systemctl suspend
         ;;
-    $logout)
+    $logoutt)
         bspc quit
         ;;
 esac
