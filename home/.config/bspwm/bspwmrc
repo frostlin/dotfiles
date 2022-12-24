@@ -3,31 +3,30 @@
 # Environtment
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
 
-# my attempts in dynamic displays configuration, maybe will finish it someday..
-#declare -a CONNECTED_MONITORS=( $(xrandr | grep ' connected' | awk '{print $1}') )
-#setup workspaces
-#if [[ "$1" = 0 -a $(xrandr | grep 'DisplayPort-1 connected' | wc -l) -eq 1 ]]; then
-#    xrandr --output DisplayPort-0 --primary --pos 1440x1120 --mode 3440x1440 --rate 165 --output DisplayPort-1 --pos 0x0 --left-of DisplayPort-0
-#    xrandr --output DisplayPort-1 --rotate left
-#    xrandr --output DisplayPort-0 --pos 1440x1120
-#    bspc monitor DisplayPort-0 -d 1 2 3 4 5 6  
-#    bspc monitor DisplayPort-1 -d 7 8 9 10    
-#    bspc wm -O DisplayPort-0 DisplayPort-1
-#else
+# variables for primary(MP) and secodary(MS) monitors
+MP=DisplayPort-2
+MS=DisplayPort-1
 
-xrandr --primary --output DisplayPort-0 --mode 3440x1440 --rate 165
-# bspc monitor DisplayPort-0 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor DisplayPort-0 -d I II III IV V VI VII VIII IX X
+# set primary mode
+xrandr --output $MP --primary --mode 3440x1440 --rate 165
+bspc monitor $MP -d 1 2 3 4 5 6 7 8 9
+bspc monitor $MS -d 10
+#bspc monitor $MP -d I II III IV V VI VII VIII IX X
+
 # setup second monitor if it is connected
-if [[ $( xrandr | grep 'DisplayPort-1 connected' | wc -l) -eq 1 ]]; then
-    xrandr --output DisplayPort-1 --mode 2560x1440 --rate 165 --left-of DisplayPort-0
-    bspc wm -O DisplayPort-0 DisplayPort-1
+if [[ $( xrandr | grep "$MS connected" | wc -l) == 1 ]]; then
+    xrandr --output $MS --mode 2560x1440 --rate 165 --left-of $MP
+    bspc wm -O $MP $MS
+else 
+    xrandr --output $MS --off
 fi
 
 # trick to make some JetBrains software work
 wmname LG3D
+
 # set US and RU keyboard layouts and WIN+SPACE changing conmbination
 setxkbmap -layout us,ru -option grp:win_space_toggle
+
 # set keyboard repetition rate
 xset r rate 250 50
 
@@ -38,7 +37,10 @@ bspc config split_ratio 0.6
 
 # dinamically change top padding given polybar height
 height=$(grep height ~/.config/polybar/config | awk '{print $3}')
-bspc config top_padding $height
+
+# top padding only on primary monitor since polybar is only on primary monitor
+bspc config -m $MP top_padding $height
+bspc config -m $MS top_padding 0
 
 # mouse interactions 
 bspc config pointer_action1 move
@@ -50,18 +52,20 @@ bspc config pointer_action3 resize_corner
 # remove all rules first
 bspc rule -r *:*
 
+bspc rule -a Floating state=floating follow=on focus=on 
+bspc rule -a Fullscreen state=fullscreen follow=on focus=on 
+
 bspc rule -a firefox desktop='^1' follow=on
 bspc rule -a discord desktop='^8' follow=on 
-bspc rule -a Steam desktop='^9' follow=on 
-bspc rule -a qBittorrent desktop='^10' state=floating follow=on 
+bspc rule -a Steam desktop='^9' state=floating follow=on 
+bspc rule -a Spotify desktop='^10' state=floating follow=on 
 bspc rule -a Dragon-drop state=floating sticky=on follow=on 
 bspc rule -a feh state=floating follow=on
 bspc rule -a mpv state=fullscreen follow=on
-bspc rule -a Pavucontrol state=floating follow=on
 bspc rule -a 'Minecraft Launcher' state=floating follow=on
-
-bspc rule -a Floating state=floating follow=on focus=on 
-bspc rule -a Fullscreen state=fullscreen follow=on focus=on 
+bspc rule -a Pavucontrol state=floating follow=on
+bspc rule -a QjackCtl state=floating follow=on
+bspc rule -a easyeffects state=floating follow=on
 
 # Autostart -------------------------------------------------#
 
@@ -76,8 +80,23 @@ feh --bg-fill ~/Pictures/Wallpapers/wqhd/ranni_wqhd.jpg
 
 # Start picom
 picom &
+
 # Start polybar
 ~/.config/polybar/launch.sh &
 
 # fix cross-looking pointer
 xsetroot -cursor_name left_ptr &
+
+
+# my attempts in dynamic displays configuration, maybe will finish it someday..
+#declare -a CONNECTED_MONITORS=( $(xrandr | grep ' connected' | awk '{print $1}') )
+#setup workspaces
+#if [[ "$1" = 0 -a $(xrandr | grep 'DisplayPort-1 connected' | wc -l) -eq 1 ]]; then
+#    xrandr --output DisplayPort-0 --primary --pos 1440x1120 --mode 3440x1440 --rate 165 --output DisplayPort-1 --pos 0x0 --left-of DisplayPort-0
+#    xrandr --output DisplayPort-1 --rotate left
+#    xrandr --output DisplayPort-0 --pos 1440x1120
+#    bspc monitor DisplayPort-0 -d 1 2 3 4 5 6  
+#    bspc monitor DisplayPort-1 -d 7 8 9 10    
+#    bspc wm -O DisplayPort-0 DisplayPort-1
+#else
+
