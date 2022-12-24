@@ -1,7 +1,7 @@
 configuration {
     location: 				0;
-    fixed-num-lines:		        false;
-    show-icons: 			false;
+    fixed-num-lines:		        true;
+    show-icons: 			true;
     scroll-method:			1;
     window-format: 			"[{w}] ··· {c} ···   {t}";
     click-to-exit: 			true;
@@ -10,7 +10,7 @@ configuration {
 @import "colors.rasi"
 
 * {
-    font:                               "Iosevka 11";
+    font:                               "Iosevka Bold 12";
     background-color:             	@background;
 }
 
@@ -18,18 +18,18 @@ window {
     border: 	        		1px;
     border-color: 			@selected;
     border-radius: 			0px;
-    width: 				450px;
+    width: 				400px;
     height: 				0px;
 }
 
-entry {
+prompt {
     spacing:                            0;
-    expand:                             true;
     horizontal-align:                   0;
+    vertical-align:                     0;
     text-color: 		        @foreground;
-    placeholder:                        "Search...";
+    placeholder:                        "Type to search";
     padding:    		        6px 2px 6px 2px;
-    border: 			        0px 0px 1px 0px;
+    border:                             0px 0px 1px 0px;
     border-color: 		        @selected;
     border-radius: 		        0px;
 }
@@ -42,14 +42,14 @@ mainbox {
 }
 
 listview {
-    lines:				7;
+    lines:				5;
     columns:				1;
     fixed-height: 			0;
     border: 				0px;
     border-color: 			@foreground;
     spacing: 				2px;
     scrollbar: 				false;
-    padding: 				4px 0px 0px;
+    padding: 				6px 0px 0px;
 }
 
 element-text, element-icon {
@@ -59,7 +59,7 @@ element-text, element-icon {
 
 element {
     border: 				0px;
-    padding: 				7px;
+    padding: 				4px;
 }
 element normal.normal {
     background-color: 			@background;

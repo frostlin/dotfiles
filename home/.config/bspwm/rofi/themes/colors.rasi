@@ -1,8 +1,8 @@
 * {
 background:			#000000;
-foreground:			#888888;
-selected:			#BBBBBB;
-highlight:			#f1fa8c;
+foreground:			#AAAAAA;
+selected:			#AAAAAA;
+highlight:			#800000;
 urgent:				#f48fb1;
 on:				#a1efd3;
 off:				#f48fb1;
