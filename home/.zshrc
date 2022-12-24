@@ -24,7 +24,7 @@ alias barrc='vim ~/.config/polybar/config'
 alias jrnlrc='vim ~/.config/jrnl/jrnl.yaml'
 
 #-- Pacman 
-alias p='sudo pacman -S'
+alias p='sudo pacman -S --needed'
 alias pr='sudo pacman -Rsn'
 alias pu='sudo pacman -Syu'
 alias pi='pacman -Qi'
