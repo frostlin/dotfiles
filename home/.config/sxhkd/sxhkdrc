@@ -8,6 +8,10 @@ super + {_,ctrl,shift} + Return
 super + {_,shift} + e
     {_,bspc rule -a Floating -o state=floating sticky=on focus=on follow=on;} alacritty --class 'Floating' -e ranger
 
+# cava music visualizer (sticky)
+super + ctrl + c
+    bspc rule -a Floating -o state=floating sticky=on focus=on follow=on; alacritty --class 'Floating' -e cava
+
 # iwctl in floating terminal 
 super + n
     alacritty --class 'Floating' -e iwctl
@@ -30,22 +34,33 @@ super + shift + p
     
 # Lockscreen
 super + Escape
-    bsplock
+    slock
 
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
 super + d
     sh ~/.config/bspwm/rofi/bin/launcher
+# Rofi powermenu
+super + x
+    sh ~/.config/bspwm/rofi/bin/powermenu
+
+# Rofi config menu 
+super + o
+    sh ~/.config/bspwm/rofi/bin/configs
+    
+# Rofi ssh menu 
+super + s
+    sh ~/.config/bspwm/rofi/bin/sshmenu
 
 ##---------- System Keys ----------##
 
 #Take screenshot of area with Flameshot
 shift + Escape
-    flameshot gui -p ~/Pictures/Screenshots
+    flameshot gui
 
 # Take fullscreen and save to ~/Pictures
-ctrl + shift + Escape
+alt + shift + Escape
     flameshot full -p ~/Pictures/Screenshots
 	
 # Volume control
@@ -99,9 +114,9 @@ super + shift + i
     barmask
 
 # Cycle through occupied desktops (forward)
-super + Tab 
+alt + Tab 
     bspc desktop -f next.local.occupied
     
 # Cycle through occupied desktops (backward)
-super + shift + Tab 
+alt + shift + Tab 
     bspc desktop -f prev.local.occupied
