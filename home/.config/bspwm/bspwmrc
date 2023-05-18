@@ -4,23 +4,18 @@
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
 
 # variables for primary(MP) and secodary(MS) monitors
-MP=DisplayPort-2
-MS=DisplayPort-1
+MP=DisplayPort-1
+MS=DisplayPort-0
+#MT=HDMI-A-1
+
+# setup monitors layout
+~/xrandr.sh
 
 # set primary mode
-xrandr --output $MP --primary --mode 3440x1440 --rate 165
 bspc monitor $MP -d 1 2 3 4 5 6 7 8 9
-bspc monitor $MS -d 10
-#bspc monitor $MP -d I II III IV V VI VII VIII IX X
-
-# setup second monitor if it is connected
-if [[ $( xrandr | grep "$MS connected" | wc -l) == 1 ]]; then
-    xrandr --output $MS --mode 2560x1440 --rate 165 --left-of $MP
-    bspc wm -O $MP $MS
-else 
-    xrandr --output $MS --off
-fi
-
+bspc monitor $MS -d second
+#bspc monitor $MT -d third
+bspc wm -O $MP $MS
 # trick to make some JetBrains software work
 wmname LG3D
 
@@ -41,6 +36,7 @@ height=$(grep height ~/.config/polybar/config | awk '{print $3}')
 # top padding only on primary monitor since polybar is only on primary monitor
 bspc config -m $MP top_padding $height
 bspc config -m $MS top_padding 0
+#bspc config -m $MT top_padding 0
 
 # mouse interactions 
 bspc config pointer_action1 move
@@ -55,10 +51,9 @@ bspc rule -r *:*
 bspc rule -a Floating state=floating follow=on focus=on 
 bspc rule -a Fullscreen state=fullscreen follow=on focus=on 
 
-bspc rule -a firefox desktop='^1' follow=on
-bspc rule -a discord desktop='^8' follow=on 
-bspc rule -a Steam desktop='^9' state=floating follow=on 
-bspc rule -a Spotify desktop='^10' state=floating follow=on 
+bspc rule -a firefox state=floating follow=on 
+bspc rule -a Steam desktop='^8' state=floating follow=on 
+bspc rule -a Spotify desktop='^9' state=floating follow=on 
 bspc rule -a Dragon-drop state=floating sticky=on follow=on 
 bspc rule -a feh state=floating follow=on
 bspc rule -a mpv state=fullscreen follow=on
@@ -76,7 +71,8 @@ killall -9 picom sxhkd
 sxhkd &
 
 # Set wallpaper
-feh --bg-fill ~/Pictures/Wallpapers/wqhd/ranni_wqhd.jpg
+# feh --bg-fill ~/Pictures/Wallpapers/wqhd/ranni_wqhd.jpg
+feh --bg-fill ~/Pictures/Wallpapers/trolley.jpg 
 
 # Start picom
 picom &
@@ -86,7 +82,6 @@ picom &
 
 # fix cross-looking pointer
 xsetroot -cursor_name left_ptr &
-
 
 # my attempts in dynamic displays configuration, maybe will finish it someday..
 #declare -a CONNECTED_MONITORS=( $(xrandr | grep ' connected' | awk '{print $1}') )

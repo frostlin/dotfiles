@@ -56,11 +56,11 @@ super + s
 ##---------- System Keys ----------##
 
 #Take screenshot of area with Flameshot
-shift + Escape
+Print
     flameshot gui
 
 # Take fullscreen and save to ~/Pictures
-alt + shift + Escape
+alt + Print 
     flameshot full -p ~/Pictures/Screenshots
 	
 # Volume control
@@ -114,9 +114,13 @@ super + shift + i
     barmask
 
 # Cycle through occupied desktops (forward)
-alt + Tab 
+super + Tab 
     bspc desktop -f next.local.occupied
     
 # Cycle through occupied desktops (backward)
-alt + shift + Tab 
+super + shift + Tab 
     bspc desktop -f prev.local.occupied
+
+# Resize windows
+super + alt + {h,j,k,l}
+    /bin/sh $HOME/.config/bspwm/resize/{expandx.sh,expandy.sh,shrinky.sh,shrinkx.sh}

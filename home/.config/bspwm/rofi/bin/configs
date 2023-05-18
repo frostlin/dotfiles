@@ -11,6 +11,7 @@ $HOME/.config/picom/picom.conf
 $HOME/.config/sxhkd/sxhkdrc
 $HOME/.vimrc
 $HOME/.config/alacritty/alacritty.yml
+$HOME/.config/alacritty/fonts.yml
 $HOME/.config/polybar/config
 "
 
