@@ -26,6 +26,7 @@ inoremap kj <Esc>
 
 nnoremap <S-j> :m+<CR>
 nnoremap <S-k> :m-2<CR>
+            
 let mapleader = ","
 nmap <laeder>w :w!<cr>
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
@@ -84,7 +85,12 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 call plug#begin()
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/nerdtree'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
