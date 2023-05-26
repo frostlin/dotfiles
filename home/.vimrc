@@ -6,6 +6,7 @@ set undolevels=2000
 set undofile
 set undodir=$HOME/.vim/undo
 
+set nowrap
 set nocompatible
 set wildmenu
 set path+=**
@@ -66,7 +67,6 @@ set tw=500
 
 set ai
 set si
-set wrap
 
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
