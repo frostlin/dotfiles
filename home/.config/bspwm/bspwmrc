@@ -4,18 +4,23 @@
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
 
 # variables for primary(MP) and secodary(MS) monitors
-MP=DisplayPort-1
-MS=DisplayPort-0
-#MT=HDMI-A-1
+#MP=DisplayPort-0
+#MS=DisplayPort-1
+MP=DP-2
 
 # setup monitors layout
-~/xrandr.sh
+~/.screenlayout/displays.sh
+#xrandr --output $MP --primary --mode 3440x1440 --rate 165.00 --set TearFree on
+
+# option for smooth window dragging on different refresh rates.
+#example for 144hz: 1000\144=7
+bspc config pointer_motion_interval 5
 
 # set primary mode
 bspc monitor $MP -d 1 2 3 4 5 6 7 8 9
-bspc monitor $MS -d second
+#bspc monitor $MS -d second
 #bspc monitor $MT -d third
-bspc wm -O $MP $MS
+#bspc wm -O $MP $MS #$MT
 # trick to make some JetBrains software work
 wmname LG3D
 
@@ -35,7 +40,7 @@ height=$(grep height ~/.config/polybar/config | awk '{print $3}')
 
 # top padding only on primary monitor since polybar is only on primary monitor
 bspc config -m $MP top_padding $height
-bspc config -m $MS top_padding 0
+#bspc config -m $MS top_padding 0
 #bspc config -m $MT top_padding 0
 
 # mouse interactions 
@@ -51,31 +56,30 @@ bspc rule -r *:*
 bspc rule -a Floating state=floating follow=on focus=on 
 bspc rule -a Fullscreen state=fullscreen follow=on focus=on 
 
+bspc rule -a Navigator state=floating sticky=on follow=on
 bspc rule -a firefox state=floating follow=on 
-bspc rule -a Steam desktop='^8' state=floating follow=on 
+bspc rule -a steam state=floating follow=on 
 bspc rule -a Spotify desktop='^9' state=floating follow=on 
 bspc rule -a Dragon-drop state=floating sticky=on follow=on 
 bspc rule -a feh state=floating follow=on
-bspc rule -a mpv state=fullscreen follow=on
+bspc rule -a mpv state=floating follow=on
 bspc rule -a 'Minecraft Launcher' state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
 bspc rule -a QjackCtl state=floating follow=on
 bspc rule -a easyeffects state=floating follow=on
 
 # Autostart -------------------------------------------------#
-
-# Kill if already running
-killall -9 picom sxhkd 
-
 # Lauch keybindings daemon
+killall -9 sxhkd
 sxhkd &
 
 # Set wallpaper
-# feh --bg-fill ~/Pictures/Wallpapers/wqhd/ranni_wqhd.jpg
 feh --bg-fill ~/Pictures/Wallpapers/trolley.jpg 
 
+
 # Start picom
-picom &
+#killall -9 picom
+#picom &
 
 # Start polybar
 ~/.config/polybar/launch.sh &

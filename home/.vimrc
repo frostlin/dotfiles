@@ -28,7 +28,7 @@ inoremap kj <Esc>
 nnoremap <S-j> :m+<CR>
 nnoremap <S-k> :m-2<CR>
             
-let mapleader = ","
+let mapleader = " "
 nmap <laeder>w :w!<cr>
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 

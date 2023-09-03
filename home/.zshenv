@@ -4,3 +4,4 @@ export EDITOR="/bin/vim"
 export SUDO_EDITOR="/usr/bin/vim"
 export FZF_DEFAULT_COMMAND='fdfind --type f'
 export FXF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
+export _JAVA_AWT_WM_NONREPARENTING=1

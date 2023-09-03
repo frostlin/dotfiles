@@ -9,9 +9,10 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
 
 pfetch 
-
+#alias history='history -i'
+alias wrt='figlet -C utf8 -f banner'
 alias todo='cat ~/todo.txt'
-
+alias cal='cal -3m'
 #-- Configs
 alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
 alias zshrc='vim ~/.zshrc'
@@ -32,7 +33,7 @@ alias pi='pacman -Qi'
 #-- Misc
 alias font='setfont ter-132n'
 alias mkdir="mkdir -pv"
-alias r='ranger'
+alias ra='ranger'
 alias sr='sudo ranger'
 alias :q='exit'
 alias q='exit'
@@ -40,7 +41,7 @@ alias reload='source ~/.zshrc'
 alias journal='jrnl --format short'
 alias j='jrnl'
 alias img2asc='ascii-image-converter'
-alias cm='cmatrix -u 3 -C cyan -s'
+alias cm='cmatrix -u 3 -s'
 alias please='sudo'
 alias egs="legendary"
 

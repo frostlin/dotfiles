@@ -10,7 +10,8 @@ super + {_,shift} + e
 
 # cava music visualizer (sticky)
 super + ctrl + c
-    bspc rule -a Floating -o state=floating sticky=on focus=on follow=on; alacritty --class 'Floating' -e cava
+    bspc rule -a Floating -o state=floating focus=on follow=on; alacritty --class 'Floating' -e cava
+    #bspc rule -a Floating -o state=floating sticky=on focus=on follow=on; alacritty --class 'Floating' -e cava
 
 # iwctl in floating terminal 
 super + n
@@ -42,7 +43,7 @@ super + Escape
 super + d
     sh ~/.config/bspwm/rofi/bin/launcher
 # Rofi powermenu
-super + x
+super + shift + x
     sh ~/.config/bspwm/rofi/bin/powermenu
 
 # Rofi config menu 
