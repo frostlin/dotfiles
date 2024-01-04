@@ -45,6 +45,10 @@ alias cm='cmatrix -u 3 -s'
 alias please='sudo'
 alias egs="legendary"
 
+alias d="docker"
+alias dc="docker compose"
+alias dcb="docker compose up -d --no-deps --build"
+
 # git 
 alias ga="git add"
 alias gc="git commit -m"
