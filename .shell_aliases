@@ -1,0 +1,63 @@
+#-- Pacman 
+alias p='sudo pacman -S --needed'
+alias pr='sudo pacman -Rsn'
+alias pu='sudo pacman -Syu'
+alias pi='pacman -Qi'
+
+# git 
+alias ga="git add"
+alias gc="git commit -m"
+alias gs="git status"
+alias gd="git diff"
+alias gr="git rm"
+alias gch="git checkout"
+alias gb="git branch -a"
+alias grs="git restore --staged"
+alias gpush="git push"
+alias gpull="git pull"
+alias gf="git fetch --all"
+alias gi="git update-index --assume-unchanged "
+
+# docker and docker-compose
+alias d="docker"
+alias dps="docker ps -a"
+alias dc="docker compose"
+alias dcb="docker compose up -d --no-deps --build"
+alias dcr="docker compose up -d --force-recreate"
+
+# k8s
+alias k="kubectl"
+alias kd="kubectl describe"
+alias kc="kubectl create"
+alias ke="kubectl edit"
+kg() {
+  kubectl get $1 -o wide
+}
+kga() {
+  kubectl get $1 -o wide --all-namespaces
+}
+kconf() {
+  kubectl config set-context --current --namespace=$1
+}
+
+
+#-- Misc
+alias font='setfont ter-132n'
+alias mkdir="mkdir -pv"
+alias r='ranger'
+alias sr='sudo ranger'
+alias reload='source ~/.zshrc'
+alias cm='cmatrix -u 3 -s'
+alias wrt='figlet -C utf8 -f banner'
+alias cal='cal -3m'
+alias penv=". ./venv/bin/activate"
+alias feh="feh -x"
+alias ll="ls -lah"
+
+#-- Configs
+alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
+alias zshrc='vim ~/.zshrc'
+alias picomrc='vim ~/.config/picom/picom.conf'
+alias xinitrc='vim ~/.xinitrc'
+
+
