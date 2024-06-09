@@ -49,8 +49,7 @@ blacklist-0 = caps lock
 
 format = <label-layout> <label-indicator>
 format-spacing = 0
-label-layout-padding = 2
-label-layout = %name%
+label-layout-padding = 0
 
 # _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -269,7 +268,7 @@ ramp-signal-foreground = ${color.CYAN}
 
 [module/sep]
 type = custom/text
-content = ◆
+content = |
 
 #content-background = ${color.BACKGROUND}
 #content-foreground = ${color.BLACK}

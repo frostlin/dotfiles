@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-DIR="$HOME/.config/bspwm"
+DIR="$HOME/.config/rofi"
 
 rofi_command="rofi -theme $DIR/rofi/themes/launcher.rasi -terminal alacritty -scroll-method 1 -no-lazy-grab -p Config"
 

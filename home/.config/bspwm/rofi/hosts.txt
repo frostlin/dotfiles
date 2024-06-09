@@ -1,3 +1,0 @@
-pg01.sglab.site         :ssh paul@192.168.88.100
-router.sglab.site       :ssh paul@192.168.88.1
-hv01.sglab.site         :ssh root@192.168.88.2 

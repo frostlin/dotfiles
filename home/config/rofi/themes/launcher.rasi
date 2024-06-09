@@ -1,6 +1,6 @@
 configuration {
     location: 				0;
-    fixed-num-lines:		        true;
+    fixed-num-lines:		        false;
     show-icons: 			true;
     scroll-method:			1;
     window-format: 			"[{w}] ··· {c} ···   {t}";
@@ -10,24 +10,37 @@ configuration {
 @import "colors.rasi"
 
 * {
-    font:                               "Iosevka Bold 12";
+    font:                               "DejaVu Sans Mono Bold 14";
     background-color:             	@background;
 }
 
 window {
-    border: 	        		1px;
+    location:				north;
+    border: 	        		2px;
     border-color: 			@selected;
     border-radius: 			0px;
-    width: 				400px;
+    width: 				600px;
     height: 				0px;
 }
-
 prompt {
     spacing:                            0;
     horizontal-align:                   0;
     vertical-align:                     0;
     text-color: 		        @foreground;
-    placeholder:                        "Type to search";
+    placeholder:                        "search:";
+    padding:    		        6px 2px 6px 2px;
+    border:                             0px 0px 1px 0px;
+    border-color: 		        @selected;
+    border-radius: 		        0px;
+}
+
+
+entry {
+    spacing:                            0;
+    horizontal-align:                   0;
+    vertical-align:                     0;
+    text-color: 		        @dimmed-foreground;
+    placeholder:                        "application name";
     padding:    		        6px 2px 6px 2px;
     border:                             0px 0px 1px 0px;
     border-color: 		        @selected;
@@ -42,7 +55,7 @@ mainbox {
 }
 
 listview {
-    lines:				5;
+    lines:				15;
     columns:				1;
     fixed-height: 			0;
     border: 				0px;
@@ -59,7 +72,7 @@ element-text, element-icon {
 
 element {
     border: 				0px;
-    padding: 				4px;
+    padding: 				3px;
 }
 element normal.normal {
     background-color: 			@background;

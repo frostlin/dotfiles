@@ -1,21 +1,21 @@
 ##---------- General keybingdigs  ----------##
 
-# Terminal (alacritty,default/floating/fullscreen)
+# Terminal (tilix,default/floating/fullscreen)
 super + {_,ctrl,shift} + Return
-    alacritty --class {'Alacritty','Floating','Fullscreen'}
+    alacritty --class {'tilix','floating','fullscreen'}
 
 # File explorer
 super + {_,shift} + e
-    {_,bspc rule -a Floating -o state=floating sticky=on focus=on follow=on;} alacritty --class 'Floating' -e ranger
+    {_,bspc rule -a floating -o state=floating sticky=on focus=on follow=on;} alacritty --class 'floating' -e ranger
 
 # cava music visualizer (sticky)
-super + ctrl + c
-    bspc rule -a Floating -o state=floating focus=on follow=on; alacritty --class 'Floating' -e cava
-    #bspc rule -a Floating -o state=floating sticky=on focus=on follow=on; alacritty --class 'Floating' -e cava
+#super + ctrl + c
+#    bspc rule -a floating -o state=floating focus=on follow=on; tilix --class 'floating' -e cava
+    #bspc rule -a floating -o state=floating sticky=on focus=on follow=on; tilix --class 'floating' -e cava
 
 # iwctl in floating terminal 
 super + n
-    alacritty --class 'Floating' -e iwctl
+    alacritty --class 'floating' -e iwctl
 
 # Web browser 
 super + b
@@ -23,11 +23,11 @@ super + b
 
 # Htop
 ctrl + shift + Escape
-    alacritty --class 'Fullscreen' -e htop
+   alacritty --class 'fullscreen' -e htop
 
 # Xprop
 super + p
-    alacritty --class 'Floating' --hold -e xprop WM_CLASS
+    alacritty --class 'floating' --hold -e xprop WM_CLASS
 
 # Color Picker
 super + shift + p
@@ -37,22 +37,24 @@ super + shift + p
 super + Escape
     slock
 
+alt + s
+
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
 super + d
-    sh ~/.config/bspwm/rofi/bin/launcher
+    sh ~/.config/rofi/bin/launcher
 # Rofi powermenu
 super + shift + x
-    sh ~/.config/bspwm/rofi/bin/powermenu
+    sh ~/.config/rofi/bin/powermenu
 
 # Rofi config menu 
 super + o
-    sh ~/.config/bspwm/rofi/bin/configs
+    sh ~/.config/rofi/bin/configs
     
 # Rofi ssh menu 
 super + s
-    sh ~/.config/bspwm/rofi/bin/sshmenu
+    ~/.config/rofi/bin/ssh_menu
 
 ##---------- System Keys ----------##
 
@@ -86,7 +88,7 @@ super + r
 super + shift + {q,r}
     bspc {quit,wm -r}
 
-# Toggle Fullscreen
+# Toggle fullscreen
 super + m
     bspc node -t "~"fullscreen
 
@@ -104,15 +106,18 @@ super + {_,shift + }{1-9}
 
 # Workaround for ^10 workspace
 super + {_,shift + }0
-    bspc {desktop -f,node -d} '^10'
+    bspc {desktop -f,node -d} 'second'
+
+F12
+    bspc desktop {-f 'term', last.local -f}
 
 # Hide/Unhide Window
 super + i
-    winmask	
+    barmask
 
 # Hide/Unhide Polybar
 super + shift + i
-    barmask
+    winmask	
 
 # Cycle through occupied desktops (forward)
 super + Tab 

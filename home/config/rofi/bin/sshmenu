@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-ROFI_DIR="~/.config/bspwm/rofi/"
+ROFI_DIR="~/.config/rofi"
 
 # command for launching rofi
 rofi_command="rofi -theme $ROFI_DIR/themes/launcher.rasi -terminal alacritty -scroll-method 1 -no-lazy-grab -p ssh"

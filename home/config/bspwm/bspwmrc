@@ -4,23 +4,21 @@
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
 
 # variables for primary(MP) and secodary(MS) monitors
-#MP=DisplayPort-0
-#MS=DisplayPort-1
-MP=DP-2
+MP=DP-0
+MS=HDMI-0
 
-# setup monitors layout
+# setup monitors layout, file generated with arandr
 ~/.screenlayout/displays.sh
-#xrandr --output $MP --primary --mode 3440x1440 --rate 165.00 --set TearFree on
+#xrandr --output $MP --primary --mode 2560x1440 --rate 165.00 --set TearFree on
 
 # option for smooth window dragging on different refresh rates.
 #example for 144hz: 1000\144=7
 bspc config pointer_motion_interval 5
 
 # set primary mode
-bspc monitor $MP -d 1 2 3 4 5 6 7 8 9
-#bspc monitor $MS -d second
-#bspc monitor $MT -d third
-#bspc wm -O $MP $MS #$MT
+bspc monitor $MP -d 1 2 3 4 5 6 7 8 9 term
+bspc monitor $MS -d second
+bspc wm -O $MP $MS
 # trick to make some JetBrains software work
 wmname LG3D
 
@@ -31,8 +29,8 @@ setxkbmap -layout us,ru -option grp:win_space_toggle
 xset r rate 250 50
 
 # borders and gaps
-bspc config border_width 1
-bspc config window_gap 5
+bspc config border_width 3
+bspc config window_gap 13
 bspc config split_ratio 0.6
 
 # dinamically change top padding given polybar height
@@ -53,13 +51,12 @@ bspc config pointer_action3 resize_corner
 # remove all rules first
 bspc rule -r *:*
 
-bspc rule -a Floating state=floating follow=on focus=on 
-bspc rule -a Fullscreen state=fullscreen follow=on focus=on 
+bspc rule -a *:* layer=below 
+bspc rule -a floating state=floating follow=on focus=on layer=above
+bspc rule -a fullscreen state=fullscreen follow=on focus=on 
 
-bspc rule -a Navigator state=floating sticky=on follow=on
-bspc rule -a firefox state=floating follow=on 
-bspc rule -a steam state=floating follow=on 
-bspc rule -a Spotify desktop='^9' state=floating follow=on 
+#bspc rule -a firefox desktop='^1' -o
+bspc rule -a Navigator state=floating sticky=on follow=on layer=above
 bspc rule -a Dragon-drop state=floating sticky=on follow=on 
 bspc rule -a feh state=floating follow=on
 bspc rule -a mpv state=floating follow=on
@@ -68,24 +65,38 @@ bspc rule -a Pavucontrol state=floating follow=on
 bspc rule -a QjackCtl state=floating follow=on
 bspc rule -a easyeffects state=floating follow=on
 
+bspc rule -a Spotify desktop='^8' state=floating 
+bspc rule -a steam desktop='^9' state=floating
+bspc rule -a discord desktop='^3'
+bspc rule -a telegram-desktop desktop='^3'
+
 # Autostart -------------------------------------------------#
-# Lauch keybindings daemon
-killall -9 sxhkd
+
+
+
+killall -9 dunst sxhkd
 sxhkd &
-
-# Set wallpaper
-feh --bg-fill ~/Pictures/Wallpapers/trolley.jpg 
-
-
-# Start picom
-#killall -9 picom
-#picom &
-
-# Start polybar
+dunst &
 ~/.config/polybar/launch.sh &
 
 # fix cross-looking pointer
 xsetroot -cursor_name left_ptr &
+
+# stat tilix with custom name on "term" workspace 
+bspc rule -a tilix_main desktop='term' follow=off
+if [ -z $(xdo id -n tilix_main) ]; then
+    tilix --name=tilix_main
+fi
+
+# Set wallpaper
+feh --bg-fill ~/Pictures/Wallpapers/sakura-12.png
+
+
+
+
+
+
+
 
 # my attempts in dynamic displays configuration, maybe will finish it someday..
 #declare -a CONNECTED_MONITORS=( $(xrandr | grep ' connected' | awk '{print $1}') )

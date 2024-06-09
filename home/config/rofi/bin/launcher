@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-DIR="$HOME/.config/bspwm"
+DIR="$HOME/.config/rofi"
 
 rofi \
 	-show drun \
@@ -11,4 +11,4 @@ rofi \
 	-no-drun-show-actions \
 	-terminal alacritty \
 	-kb-cancel Escape \
-    -theme "$DIR"/rofi/themes/launcher.rasi \
+    -theme "$DIR"/themes/launcher.rasi \
