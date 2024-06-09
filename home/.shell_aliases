@@ -39,7 +39,7 @@ kga() {
 kconf() {
   kubectl config set-context --current --namespace=$1
 }
-
+alias g='gcloud'
 
 #-- Misc
 alias font='setfont ter-132n'
@@ -61,3 +61,5 @@ alias picomrc='vim ~/.config/picom/picom.conf'
 alias xinitrc='vim ~/.xinitrc'
 
 
+alias pas='pass git pull; pass nksupport/all | less'
+alias newpass='openssl rand -base64 12'
