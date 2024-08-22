@@ -41,6 +41,12 @@ kconf() {
 }
 alias g='gcloud'
 
+# terraform
+
+alias tf="terraform"
+
+
+
 #-- Misc
 alias font='setfont ter-132n'
 alias mkdir="mkdir -pv"
@@ -63,3 +69,5 @@ alias xinitrc='vim ~/.xinitrc'
 
 alias pas='pass git pull; pass nksupport/all | less'
 alias newpass='openssl rand -base64 12'
+alias myip='wget -q -O - ipinfo.io/ip'
+alias prename='/usr/bin/vendor_perl/rename'
