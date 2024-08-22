@@ -21,7 +21,7 @@ dynamic_title = true
 startup_mode = "Windowed"
 
 [window.dimensions]
-columns = 130
+columns = 90
 lines = 40
 
 [window.padding]
