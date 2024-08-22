@@ -2,7 +2,7 @@
   "layer": "bottom",
     "height": 10,
     "output": "DP-1",
-    "modules-left":   ["hyprland/workspaces"],
+    "modules-left":   ["hyprland/workspaces","hyprland/language"],
     "modules-center": ["clock"],
     "modules-right":  ["custom/playerctl", "pulseaudio", "tray"],
 
@@ -29,6 +29,11 @@
       "format": "<span foreground='#dbabdb'>  </span><span>{:%H:%M %A %d.%m}</span>",
       "format-alt": "<span color='#dbabdb'>  </span>{:%H:%M}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "hyprland/language": {
+      "format": "{}",
+      "format-en": "AMERICA, HELL YEAH!",
+      "format-ru": "Я РУССКИЙ!"
     },
     "backlight": {
       "device": "amdgpu_b10",

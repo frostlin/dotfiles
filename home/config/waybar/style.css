@@ -28,13 +28,15 @@
   background-color: black;
   color: #dddddd;
 }
-#clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl {
+#clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl,#language {
   border-radius: 10px;
   background-color: black;
+  color: black;
   color: #dddddd;
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
+  margin-left: 10px;
   margin-top: 10px;
 }
 
