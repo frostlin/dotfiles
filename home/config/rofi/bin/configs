@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 DIR="$HOME/.config/rofi"
 
-rofi_command="rofi -theme $DIR/rofi/themes/launcher.rasi -terminal alacritty -scroll-method 1 -no-lazy-grab -p Config"
+rofi_command="rofi -theme $DIR/themes/launcher.rasi -terminal alacritty -scroll-method 1 -no-lazy-grab -p Config"
 
 # Variable passed to rofi
 options="$HOME/.config/bspwm/bspwmrc
@@ -10,8 +10,8 @@ $HOME/.xinitrc
 $HOME/.config/picom/picom.conf
 $HOME/.config/sxhkd/sxhkdrc
 $HOME/.vimrc
-$HOME/.config/alacritty/alacritty.yml
-$HOME/.config/alacritty/fonts.yml
+$HOME/.config/alacritty/alacritty.toml
+$HOME/.config/alacritty/fonts.toml
 $HOME/.config/polybar/config
 "
 
@@ -20,4 +20,4 @@ echo $chosen
 
 if [[ $chosen == "" ]]; then exit; fi
 
-alacritty --class 'Floating' -e vim $chosen
+alacritty --class 'floating' -e vim $chosen
