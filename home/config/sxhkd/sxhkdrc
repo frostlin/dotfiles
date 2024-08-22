@@ -8,42 +8,27 @@ super + {_,ctrl,shift} + Return
 super + {_,shift} + e
     {_,bspc rule -a floating -o state=floating sticky=on focus=on follow=on;} alacritty --class 'floating' -e ranger
 
-# cava music visualizer (sticky)
-#super + ctrl + c
-#    bspc rule -a floating -o state=floating focus=on follow=on; tilix --class 'floating' -e cava
-    #bspc rule -a floating -o state=floating sticky=on focus=on follow=on; tilix --class 'floating' -e cava
-
-# iwctl in floating terminal 
-super + n
-    alacritty --class 'floating' -e iwctl
+super + shift + m
+    alacritty --class 'floating' -e bash -c "cava"
 
 # Web browser 
 super + b
     firefox
 
-# Htop
-ctrl + shift + Escape
-   alacritty --class 'fullscreen' -e htop
-
 # Xprop
 super + p
-    alacritty --class 'floating' --hold -e xprop WM_CLASS
+    alacritty --class 'floating' -e bash -c "while true; do xprop WM_CLASS; done"
 
-# Color Picker
-super + shift + p
-    color-gpick
-    
 # Lockscreen
 super + Escape
     slock
-
-alt + s
 
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
 super + d
     sh ~/.config/rofi/bin/launcher
+
 # Rofi powermenu
 super + shift + x
     sh ~/.config/rofi/bin/powermenu
@@ -72,7 +57,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 
 # Media control
 XF86Audio{Next,Prev,Play,Stop}
-    mpc {next,prev,toggle,stop}
+    playerctl -i firefox {next,previous,play-pause,stop}
 
 ##---------- Bspwm ----------##
 
@@ -97,17 +82,15 @@ super + f
     bspc node -t "~"{floating,tiled}
 
 # Send the window to another edge of the screen
-super + {_,shift + }{h,j,k,l}
+super + {_,shift} + {h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 # Workspaces control
-super + {_,shift + }{1-9}
-    bspc {desktop -f,node -d} '^{1-9}'
-
-# Workaround for ^10 workspace
-super + {_,shift + }0
-    bspc {desktop -f,node -d} 'second'
-
+super + {_,shift} + {1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift} + {F13,F14}
+    bspc {desktop -f,node -d} '^{11-12}'
+# Special workspace, switching to it and back to last workspace
 F12
     bspc desktop {-f 'term', last.local -f}
 
