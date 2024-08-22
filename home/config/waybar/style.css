@@ -1,7 +1,7 @@
 * {
   border: none;
   font-family: 'JetBrainsMono Nerd Font' , 'Symbols Only';
-  font-size: 14px;
+  font-size: 16px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -12,21 +12,29 @@
 #workspaces {
   border-radius: 10px;
   background-color: black;
-  color: #dddddd;
   margin-top: 10px;
   margin-left: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
-
-#workspaces button.active {
-  background-color: black;
-  color: #dddddd;
-}
-
 #workspaces button.empty {
+  border-radius: 5px;
   background-color: black;
-  color: #dddddd;
+  color: #333333;
+}
+#workspaces button.active {
+  border-radius: 5px;
+  background-color: #222222;
+  color: white;
+}
+#workspaces button {
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+#workspaces button:hover {
+  background: #d0ddd6;
+  color: #313244;
 }
 #clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl,#language {
   border-radius: 10px;
