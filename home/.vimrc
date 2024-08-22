@@ -3,7 +3,7 @@ filetype plugin on
 filetype indent on
 syntax on
 set termguicolors
-colorscheme habamax
+"colorscheme habamax
 
 set undolevels=2000
 set undofile
@@ -55,7 +55,7 @@ set expandtab
 set smarttab
 set splitbelow
 set splitright
-set shiftwidth=4
+set shiftwidth=2
 
 set lbr
 set tw=500
@@ -98,6 +98,7 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'mattn/emmet-vim'
+  Plug 'jvirtanen/vim-hcl'
 
 
 
