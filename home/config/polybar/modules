@@ -1,44 +1,26 @@
-[module/volume]
-type = internal/pulseaudio
 
-# Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-# If not, uses default sink
-sink = $(pactl list short sinks | grep RUNNING | awk '{print $2}')
+[module/pipewire-volume]
+type = custom/script
+tail = true
+format-underline = ${colors.cyan}
+label-padding = 0
+label-foreground = ${colors.foreground}
 
-# Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-# Default: true
-use-ui-max = false
+# Icons mixed from Font Awesome 5 and Material Icons
+# You can copy-paste your options for each possible action, which is more
+# trouble-free but repetitive, or apply only the relevant ones (for example
+# --node-blacklist is only needed for next-node).
+# pactl list sinks | egrep "device.id|Description"
+# pactl list sinks short | cut -f2
+exec = pulseaudio-control --node-nicknames-from "device.description" --node-nickname "alsa_output.pci-0000_08_00.4.analog-stereo:Speakers" --node-nickname "alsa_output.usb-fifine_Microphones_fifine_Microphone_REV1.0-00.analog-stereo:Headphones" --node-blacklist "*hdmi*" listen
 
-# Interval for volume increase/decrease (in percent points)
-# Default: 5
-interval = 5
+click-middle = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-right = pulseaudio-control --node-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-node
 
-format-volume = <ramp-volume> <label-volume>
+scroll-up = pulseaudio-control --volume-max 130 up
+scroll-down = pulseaudio-control --volume-max 130 down
 
-format-muted = <label-muted>
-format-muted-prefix = 婢
-format-muted-prefix-font = 2
-#format-muted-prefix-foreground = ${color.RED}
-
-label-volume = %percentage%%
-label-muted = " Mute"
-#label-muted-foreground = #757575
-
-ramp-volume-0 = 奄
-ramp-volume-1 = 奄
-ramp-volume-2 = 奄
-ramp-volume-3 = 奔
-ramp-volume-4 = 奔
-ramp-volume-5 = 奔
-ramp-volume-6 = 墳
-ramp-volume-7 = 墳
-ramp-volume-8 = 墳
-ramp-volume-9 = 墳
-ramp-volume-font = 2
-#ramp-volume-foreground = ${color.BLUE}
-
-ramp-headphones-0 = 
-ramp-headphones-1 = 
 
 # _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -203,7 +185,7 @@ label-empty-padding = 1
 type = internal/date
 interval = 1.0
 
-time = %d.%m %l:%M %p
+time = %d %b %l:%M %p
 time-alt = %A
 
 label = %time%
