@@ -3,8 +3,8 @@
     "height": 10,
     "output": "DP-1",
     "modules-left":   ["hyprland/workspaces","hyprland/language"],
-    "modules-center": ["clock"],
-    "modules-right":  ["custom/playerctl", "pulseaudio", "tray"],
+    "modules-center": ["custom/playerctl"],
+    "modules-right":  ["clock", "pulseaudio", "tray"],
 
 
 
@@ -25,8 +25,17 @@
           "10":[]
         }
     },
+    "hyprland/window": {
+      "format": "{class} 👉 {title}",
+      "rewrite": {
+       /* "(.*) — Mozilla Firefox": "🌎 $1",
+        "(.*) - fish": "> [$1]"*/
+      },
+      "separate-outputs": true
+    },
     "clock": {
-      "format": "<span foreground='#dbabdb'>  </span><span>{:%H:%M %A %d.%m}</span>",
+      "interval": 1,
+      "format": "<span foreground='#dbabdb'>  </span><span>{:%d.%m %A %H:%M:%S}</span>",
       "format-alt": "<span color='#dbabdb'>  </span>{:%H:%M}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },

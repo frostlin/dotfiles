@@ -12,7 +12,7 @@
 #workspaces {
   border-radius: 10px;
   background-color: black;
-  margin-top: 10px;
+  margin-top: 11px;
   margin-left: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -36,7 +36,7 @@
   background: #d0ddd6;
   color: #313244;
 }
-#clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl,#language {
+#window, #clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl, #language {
   border-radius: 10px;
   background-color: black;
   color: black;
@@ -44,8 +44,10 @@
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
+  margin-top: 11px;
+}
+#language {
   margin-left: 10px;
-  margin-top: 10px;
 }
 
 @keyframes blink {
