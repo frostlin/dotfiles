@@ -20,7 +20,7 @@
 #workspaces button.empty {
   border-radius: 5px;
   background-color: black;
-  color: #333333;
+  color: #222222;
 }
 #workspaces button.active {
   border-radius: 5px;
@@ -36,7 +36,7 @@
   background: #d0ddd6;
   color: #313244;
 }
-#window, #clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl, #language {
+#systemd-failed-units,#load, #window, #clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl, #language {
   border-radius: 10px;
   background-color: black;
   color: black;

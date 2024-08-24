@@ -2,7 +2,7 @@
   "layer": "bottom",
     "height": 10,
     "output": "DP-1",
-    "modules-left":   ["hyprland/workspaces","hyprland/language"],
+    "modules-left":   ["hyprland/workspaces","hyprland/language","load","systemd-failed-units"],
     "modules-center": ["custom/playerctl"],
     "modules-right":  ["clock", "pulseaudio", "tray"],
 
@@ -28,8 +28,8 @@
     "hyprland/window": {
       "format": "{class} 👉 {title}",
       "rewrite": {
-       /* "(.*) — Mozilla Firefox": "🌎 $1",
-        "(.*) - fish": "> [$1]"*/
+       // "(.*) — Mozilla Firefox": "🌎 $1",
+       // "(.*) - fish": "> [$1]"
       },
       "separate-outputs": true
     },
@@ -39,10 +39,23 @@
       "format-alt": "<span color='#dbabdb'>  </span>{:%H:%M}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    "load": {
+      "interval": 1,
+      "format": "{load1}"
+    },
+    "systemd-failed-units": {
+	"hide-on-ok": true, // Do not hide if there is zero failed units.
+	"format": "✗ {nr_failed}",
+	"format-ok": "✓",
+	"system": true, // Monitor failed systemwide units.
+	"user": true // Ignore failed user units.
+    },
     "hyprland/language": {
       "format": "{}",
-      "format-en": "AMERICA, HELL YEAH!",
-      "format-ru": "Я РУССКИЙ!"
+      "format-en": "EN",
+      "format-ru": "RU"
+      //"format-en": "AMERICA, HELL YEAH!",
+      //"format-ru": "Я РУССКИЙ!"
     },
     "backlight": {
       "device": "amdgpu_b10",
