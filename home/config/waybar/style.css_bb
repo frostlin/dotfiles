@@ -1,38 +1,36 @@
 @define-color bg rgba(0, 0, 0, 0.5); 
-@define-color fg rgba(20, 20, 20, 1); 
 * {
-  /* border: 1px solid white; */
   border: none;
   font-family: 'JetBrainsMono Nerd Font' , 'Symbols Only';
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
 #waybar {
-  background: transparent;
+  background: black;
 }
 
 #workspaces {
   border-radius: 10px;
-  background-color: @bg;
-  margin-top: -6px;
+  background-color: black;
   margin-left: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
 #workspaces button.empty {
-  border-radius: 5px;
+  border-radius: 0px;
+  background-color: black;
   color: #222222;
 }
 #workspaces button.active {
-  border-radius: 5px;
-  /*border: 1px solid #555555;*/
-  background-color: #222222 ;
+  border-radius: 0px;
+  background-color: #222222;
   color: white;
 }
 #workspaces button {
-  border-radius: 5px;
+  border-radius: 0px;
+  background-color: black;
   color: white;
 }
 #workspaces button:hover {
@@ -41,12 +39,12 @@
 }
 #cava, #systemd-failed-units,#load, #window, #clock, #temperature, #cpu, #pulseaudio, #battery, #tray, #memory ,#custom-playerctl, #language {
   border-radius: 10px;
-  background-color: @bg;
+  background-color: black;
+  color: black;
   color: #dddddd;
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
-  margin-top: -6px;
 }
 #language {
   margin-left: 10px;

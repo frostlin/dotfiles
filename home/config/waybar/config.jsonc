@@ -1,17 +1,16 @@
 {
   "layer": "bottom",
-    "height": 10,
     "output": "DP-1",
-    "modules-left":   ["hyprland/workspaces","hyprland/language","load","systemd-failed-units"],
-    "modules-center": ["custom/playerctl"],
-    "modules-right":  ["clock", "pulseaudio", "tray"],
+    "modules-left":   ["hyprland/workspaces","hyprland/language","systemd-failed-units"],
+    "modules-center": ["clock"], //,"hyprland/window"],
+    "modules-right":  ["load","pulseaudio", "tray"],
 
 
 
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
-      "all-outputs": false,
+      "all-outputs": true,
       "persistent_workspaces" :{
           "1": [],
           "2": [],
@@ -26,12 +25,12 @@
         }
     },
     "hyprland/window": {
-      "format": "{class} 👉 {title}",
+      "format": "{class} -> {title}",
+      "max-length": "30",
       "rewrite": {
-       // "(.*) — Mozilla Firefox": "🌎 $1",
-       // "(.*) - fish": "> [$1]"
+        "(.*) — Mozilla Firefox": "🌎 $1"
       },
-      "separate-outputs": true
+      "separate-outputs": false
     },
     "clock": {
       "interval": 1,
@@ -41,7 +40,8 @@
     },
     "load": {
       "interval": 1,
-      "format": "{load1}"
+      "format": "{load1}",
+      "on-click": "tilix -a app-new-window -e htop"
     },
     "systemd-failed-units": {
 	"hide-on-ok": true, // Do not hide if there is zero failed units.
@@ -116,6 +116,28 @@
         "Paused": "<span foreground='#6dd9d9'></span>",
         "Playing": "<span foreground='#82db97'></span>"
       }
+    },
+    "cava": {
+        "cava_config": "$XDG_CONFIG_HOME/cava/config",
+        "framerate": 30,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 7,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
     }
 
 }
