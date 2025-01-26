@@ -4,7 +4,8 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0
+    monitor = HDMI-A-1
+    # monitor = DP-1
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -39,7 +40,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 10
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -176,7 +177,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "%a\n<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".

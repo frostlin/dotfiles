@@ -28,8 +28,8 @@ setxkbmap -layout us,ru -option grp:win_space_toggle
 # set keyboard repetition rate
 xset r rate 250 50
 # borders and gaps
-bspc config border_width 2
-bspc config window_gap 3
+bspc config border_width 0
+bspc config window_gap 10
 bspc config split_ratio 0.6
 
 # dinamically change top padding given polybar height

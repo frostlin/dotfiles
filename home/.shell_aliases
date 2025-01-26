@@ -1,8 +1,12 @@
+alias nvim="stty erase '^H'&&nvim"
+alias vim="nvim"
+alias tmux="tmux -2"
 #-- Pacman 
 alias p='sudo pacman -S --needed'
 alias pr='sudo pacman -Rsn'
 alias pu='sudo pacman -Syu'
-alias pi='pacman -Qi'
+alias parus='paru -S --needed'
+alias pi='pacman -Q'
 
 # git 
 alias ga="git add"
@@ -50,7 +54,7 @@ alias tf="terraform"
 #-- Misc
 alias font='setfont ter-132n'
 alias mkdir="mkdir -pv"
-alias r='ranger'
+alias ra='yazi'
 alias sr='sudo ranger'
 alias reload='source ~/.zshrc'
 alias cm='cmatrix -u 3 -s'
@@ -59,6 +63,7 @@ alias cal='cal -3m'
 alias penv=". ./venv/bin/activate"
 alias feh="feh -x"
 alias ll="ls -lah"
+alias dfh="df -h -t ext4"
 
 #-- Configs
 alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
