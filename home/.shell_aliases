@@ -73,6 +73,6 @@ alias xinitrc='vim ~/.xinitrc'
 
 
 alias pas='pass git pull; pass nksupport/all | less'
-alias newpass='openssl rand -base64 12'
+alias newpass='openssl rand -base64'
 alias myip='wget -q -O - ipinfo.io/ip'
 alias prename='/usr/bin/vendor_perl/rename'
