@@ -12,7 +12,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
+-- vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -43,8 +43,9 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
 -- Set tab width to 2 spaces
 vim.opt.tabstop = 2 -- Number of spaces a tab counts for
 vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
@@ -67,29 +68,33 @@ vim.opt.scrolloff = 15
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "kj", "<Esc>")
 
+-- wrap word into ' or "
+vim.keymap.set("n", '<leader>"', 'ciw""<Esc>P', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>'", "ciw''<Esc>P", { noremap = true, silent = true })
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
+-- is not what someone will guess "without" a bit more experience.
 --
 -- This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+-- vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+-- vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+-- vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+-- vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -651,19 +656,19 @@ require("lazy").setup({
 					["<C-p>"] = cmp.mapping.select_prev_item(),
 
 					-- Scroll the documentation window [b]ack / [f]orward
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-u>"] = cmp.mapping.scroll_docs(-4),
+					["<C-d>"] = cmp.mapping.scroll_docs(4),
 
 					-- Accept ([y]es) the completion.
 					--  This will auto-import if your LSP supports it.
 					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					-- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
-					--['<CR>'] = cmp.mapping.confirm { select = true },
-					--['<Tab>'] = cmp.mapping.select_next_item(),
-					--['<S-Tab>'] = cmp.mapping.select_prev_item(),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping.select_next_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
@@ -683,7 +688,7 @@ require("lazy").setup({
 							luasnip.expand_or_jump()
 						end
 					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
+					["<C-H>"] = cmp.mapping(function()
 						if luasnip.locally_jumpable(-1) then
 							luasnip.jump(-1)
 						end
@@ -826,7 +831,7 @@ require("lazy").setup({
 	--    This is the easiest way to modularize your config.
 	--
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-	-- { import = 'custom.plugins' },
+	{ import = "custom.plugins" },
 	--
 	-- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
 	-- Or use telescope!
@@ -866,7 +871,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	highlight EndOfBuffer ctermbg=NONE guibg=NONE
 	highlight CursorLine ctermbg=NONE guibg=NONE
 	
-	highlight NormalFloat ctermbg=NONE guibg=NONE
+  highlight NormalFloat ctermbg=NONE guibg=NONE
 	highlight FloatBorder ctermbg=NONE guibg=NONE
 	highlight FloatTitle ctermbg=NONE guibg=NONE
 	highlight FloatFooter ctermbg=NONE guibg=NONE
@@ -875,35 +880,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	highlight StatusLine ctermbg=NONE guibg=NONE
 	highlight StatusLineNC ctermbg=NONE guibg=NONE
 	
-	highlight Pmenu ctermbg=NONE guibg=NONE
-	highlight PmenuSel ctermbg=NONE guibg=NONE
-	highlight PmenuKind ctermbg=NONE guibg=NONE
-	highlight PmenuKindSel ctermbg=NONE guibg=NONE
-	highlight PmenuExtra ctermbg=NONE guibg=NONE
-	highlight PmenuExtraSel ctermbg=NONE guibg=NONE
-	highlight PmenuSbar ctermbg=NONE guibg=NONE
-	highlight PmenuThumb ctermbg=NONE guibg=NONE
 	
 	highlight ColorColumn ctermbg=NONE guibg=NONE
 	highlight CursorColumn ctermbg=NONE guibg=NONE
 	
 	highlight TabLine ctermbg=NONE guibg=NONE
 	highlight TabLineFill ctermbg=NONE guibg=NONE
-	highlight WildMenu ctermbg=NONE guibg=NONE
 	highlight FoldColumn ctermbg=NONE guibg=NONE
 	highlight Folded ctermbg=NONE guibg=NONE
 	highlight SignColumn ctermbg=NONE guibg=NONE
 	highlight CursorLineSign ctermbg=NONE guibg=NONE
-	
-	autocmd ColorScheme * highlight Normal guibg=none guibg=NONE
-	autocmd ColorScheme * highlight NonText guibg=none guibg=NONE
 ]])
 	end,
-})
-require("telescope").setup({
-	pickers = {
-		colorscheme = {
-			enable_preview = true,
-		},
-	},
 })
