@@ -1,6 +1,8 @@
 alias nvim="stty erase '^H'&&nvim"
 alias vim="nvim"
 alias tmux="tmux -2"
+alias ls="lsd"
+alias lst="lsd --tree"
 #-- Pacman 
 alias p='sudo pacman -S --needed'
 alias pr='sudo pacman -Rsn'
@@ -11,16 +13,33 @@ alias pi='pacman -Q'
 # git 
 alias ga="git add"
 alias gc="git commit -m"
+alias gca="git commit -a -m"
+
 alias gs="git status"
 alias gd="git diff"
-alias gr="git rm"
 alias gch="git checkout"
-alias gb="git branch -a"
-alias grs="git restore --staged"
+alias gb="git branch"
+alias gr="git restore --staged"
+alias grs="git reset"
+
 alias gpush="git push"
 alias gpull="git pull"
 alias gf="git fetch --all"
+
 alias gi="git update-index --assume-unchanged "
+alias gamend="git commit --amend --no-edit"
+alias gl="git log --oneline --graph"
+
+gundo() {
+  git reset --soft HEAD~${1:-1}
+}
+gfix() {
+  git add . && git commit --amend --no-edit
+}
+gfind() {
+  git log --all --oneline --graph --decorate --grep="$1"
+}
+
 
 # docker and docker-compose
 alias d="docker"
