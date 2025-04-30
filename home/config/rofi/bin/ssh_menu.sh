@@ -49,14 +49,15 @@ done
 
 SESSION_NAME="ssh"
 # Check if the session exists
-if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+#if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
     # Session does not exist, create it
-    tmux new-session -d -s "$SESSION_NAME" -n "${hostnames[$index]}" \; send-keys "clear;${commands[$index]}" C-m
+    #tmux new-session -d -s "$SESSION_NAME" -n "${hostnames[$index]}" \; send-keys "clear;${commands[$index]}" C-m
+    tmux new-session -d -n "${hostnames[$index]}" \; send-keys "clear;${commands[$index]}" C-m
     echo "Created new tmux session: $SESSION_NAME"
-else
+#else
     # create new window in $SESION_NAME session and run the command
-    tmux new-window -a -t "$SESSION_NAME" -n "${hostnames[$index]}" \; send-keys "clear;${commands[$index]}" C-m
-fi
+#    tmux new-window -a -t "$SESSION_NAME" -n "${hostnames[$index]}" \; send-keys "clear;${commands[$index]}" C-m
+#fi
 
 
 #tilix --class tilix_main --name tilix_main -e bash -c "echo ${commands[$index]};${commands[$index]};sleep infinity"
